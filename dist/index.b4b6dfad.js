@@ -27318,7 +27318,7 @@ const MainView = ()=>{
         fetch("https://jonathlonmovieapp.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
-                    _id: movie.id,
+                    _id: movie._id,
                     Title: movie.Title,
                     ImagePath: movie.ImagePath,
                     Description: movie.Description,
@@ -27356,7 +27356,7 @@ const MainView = ()=>{
                 onMovieClick: (newSelectedMovie)=>{
                     setSelectedMovie(newSelectedMovie);
                 }
-            }, movie.id, false, {
+            }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 48,
                 columnNumber: 9
