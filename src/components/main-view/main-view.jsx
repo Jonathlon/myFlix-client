@@ -1,34 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: "The Dark Knight",
-      image:
-        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/91ebheNmoUL._RI_.jpg",
-      director: "Christopher Nolan"
-    },
-    {
-      id: 2,
-      title: "Jurassic Park",
-      image:
-        "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_.jpg",
-      director: "Steven Spielberg"
-    },
-    {
-      id: 3,
-      title: "The Departed",
-      image:
-        "https://www.comingsoon.net/wp-content/uploads/sites/3/2021/10/Departed-e1633146591556.jpg?w=640",
-      director: "Martin Scorsese"
-    },
-    
-  ]);
+  const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  useEffect(() => {
+    fetch("https://jonathlonmovieapp.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.map((movie) => {
+          return {
+            _id: movie._id,
+            Title: movie.Title,
+            ImagePath: movie.ImagePath,
+            Description: movie.Description,
+            Genre: {
+              Name: movie.Genre.Name
+            },
+            Director: {
+              Name: movie.Director.Name,
+              Bio: movie.Director.Bio
+            },
+            Featured: movie.Featured.toString()
+          };
+        });
+
+        setMovies(moviesFromApi);
+
+    });
+  }, []);
 
   if (selectedMovie) {
     return (
@@ -43,7 +46,7 @@ export const MainView = () => {
     <div>
       {movies.map((movie) => (
         <MovieCard
-          key={movie.id}
+          key={movie._id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
