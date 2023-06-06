@@ -16,7 +16,9 @@ export const MainView = () => {
     if (!token) {
       return;
     }
-    fetch("https://jonathlonmovieapp.herokuapp.com/movies")
+    fetch("https://jonathlonmovieapp.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((movie) => {
