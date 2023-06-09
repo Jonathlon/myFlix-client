@@ -48,7 +48,8 @@ export const MainView = () => {
         <Col md={5}>
           <LoginView
             onLoggedIn={(user, token) => {
-              setUser(user), setToken(token);
+              setUser(user);
+              setToken(token);
             }}
           />
           or
@@ -68,6 +69,8 @@ export const MainView = () => {
           <button
             onClick={() => {
               setUser(null);
+              setToken("");
+              localStorage.clear();
             }}
           >
             Logout

@@ -66,3 +66,8 @@ export const LoginView = ({ onLoggedIn }) => {
     </Form>
   );
 };
+
+LoginView.PropTypes = {
+  Username: PropTypes.string.isRequired,
+  Password: PropTypes.string.isRequired,
+};

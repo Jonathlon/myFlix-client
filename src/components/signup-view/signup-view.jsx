@@ -80,3 +80,10 @@ export const SignupView = () => {
     </Form>
   );
 };
+
+SignupView.PropTypes = {
+  Username: PropTypes.string.isRequired,
+  Password: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  Birthday: PropTypes.string.isRequired,
+};
