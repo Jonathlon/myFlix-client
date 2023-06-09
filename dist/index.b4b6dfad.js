@@ -41187,8 +41187,7 @@ const LoginView = ({ onLoggedIn  })=>{
 _s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
 _c = LoginView;
 LoginView.PropTypes = {
-    Username: (0, _propTypesDefault.default).string.isRequired,
-    Password: (0, _propTypesDefault.default).string.isRequired
+    onLoggedIn: (0, _propTypesDefault.default).func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
@@ -41370,12 +41369,7 @@ const SignupView = ()=>{
 };
 _s(SignupView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
 _c = SignupView;
-SignupView.PropTypes = {
-    Username: (0, _propTypesDefault.default).string.isRequired,
-    Password: (0, _propTypesDefault.default).string.isRequired,
-    email: (0, _propTypesDefault.default).string.isRequired,
-    Birthday: (0, _propTypesDefault.default).string.isRequired
-};
+SignupView.PropTypes = {};
 var _c;
 $RefreshReg$(_c, "SignupView");
 
