@@ -15,6 +15,7 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
+    if (!token) return;
     fetch("https://jonathlonmovieapp.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -45,7 +46,11 @@ export const MainView = () => {
     <Row className="justify-content-md-center">
       {!user ? (
         <Col md={5}>
-          <LoginView onLoggedIn={(user) => setUser(user)} />
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user), setToken(token);
+            }}
+          />
           or
           <SignupView />
         </Col>
@@ -68,9 +73,8 @@ export const MainView = () => {
             Logout
           </button>
           {movies.map((movie) => (
-            <Col className="mb-5" key={movie.id} md={3}>
+            <Col className="mb-5 col-3" key={movie._id} md={3}>
               <MovieCard
-                key={movie._id}
                 movie={movie}
                 onMovieClick={(newSelectedMovie) => {
                   setSelectedMovie(newSelectedMovie);
