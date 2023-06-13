@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
 
-  const movieData = movieData.find((m) => m._id === movieId);
+  const movieData = movies.find((m) => m._id === movieId);
 
   return (
     <div>
@@ -15,23 +15,23 @@ export const MovieView = ({ movies }) => {
       <div>
         <div>
           <span>Title: </span>
-          <span>{movie.Title}</span>
+          <span>{movieData.Title}</span>
         </div>
         <div>
           <span>Genre: </span>
-          <span>{movie.Genre.Name}</span>
+          <span>{movieData.Genre.Name}</span>
         </div>
         <div>
           <span>Description: </span>
-          <span>{movie.Description}</span>
+          <span>{movieData.Description}</span>
         </div>
         <div>
           <span>Director: </span>
-          <span>{movie.Director.Name}</span>
+          <span>{movieData.Director.Name}</span>
         </div>
         <div>
           <span>Featured: </span>
-          <span>{movie.Featured}</span>
+          <span>{movieData.Featured}</span>
         </div>
         <Link to={`/`}>
           <button className="'back-button">Back</button>
