@@ -4,8 +4,71 @@ import PropTypes from "prop-types";
 
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
-
   const movieData = movies.find((m) => m._id === movieId);
+  const [isFavorite, setIsFavorite] = useState(
+    user.favoriteMovies.includes(movies._id)
+  );
+
+  useEffect(() => {
+    setIsFavorite(user.favoriteMovies.includes(movies._id));
+    window.scrollTo(0, 0);
+  }, [movieId]);
+
+  const addFavorite = () => {
+    fetch(
+      "https://jonathlonmovieapp.herokuapp.com/users/${username}/movies/${movieId}",
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert("Failed");
+          return false;
+        }
+      })
+      .then((user) => {
+        if (user) {
+          alert("Successfully added to favorites");
+          setIsFavorite(true);
+          updateUser(user);
+        }
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  };
+
+  const removeFavorite = () => {
+    fetch(
+      "https://jonathlonmovieapp.herokuapp.com/users/${username}/movies/${movieId}",
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert("Failed");
+          return false;
+        }
+      })
+      .then((user) => {
+        if (user) {
+          alert("Successfully deleted from favorites");
+          setIsFavorite(false);
+          updateUser(user);
+        }
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  };
 
   return (
     <div>
@@ -36,6 +99,15 @@ export const MovieView = ({ movies }) => {
         <Link to={`/`}>
           <button className="'back-button">Back</button>
         </Link>
+        {isFavorite ? (
+          <Button variant="danger" className="ms-2" onClick={removeFavorite}>
+            Remove from favorites
+          </Button>
+        ) : (
+          <Button variant="success" className="ms-2" onClick={addFavorite}>
+            Add to favorites
+          </Button>
+        )}
       </div>
     </div>
   );
