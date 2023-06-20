@@ -9,13 +9,13 @@ export const ProfileView = ({
   onLoggedOut,
   updateUser,
 }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthdate, setBirthdate] = useState("");
+  const [Username, setUsername] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Birthday, setBirthday] = useState("");
 
   let favoriteMovies = movies?.filter((movie) =>
-    user.favoriteMovies.includes(movie._id)
+    user.FavoriteMovies.includes(movie._id)
   );
 
   console.log(user);
@@ -31,7 +31,7 @@ export const ProfileView = ({
     };
 
     fetch(
-      "https://jonathlonmovieapp.herokuapp.com/users/${username}",
+      "https://jonathlonmovieapp.herokuapp.com/users/${Username}",
 
       {
         method: "PUT",
@@ -63,7 +63,7 @@ export const ProfileView = ({
 
   const deleteAccount = () => {
     console.log("doin");
-    fetch("https://jonathlonmovieapp.herokuapp.com/users/${username}", {
+    fetch("https://jonathlonmovieapp.herokuapp.com/users/${Username}", {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -111,7 +111,7 @@ export const ProfileView = ({
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="text"
-                  value={username}
+                  value={Username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
                   minLength="5"
@@ -121,8 +121,8 @@ export const ProfileView = ({
               <Form.Group>
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
-                  type="password"
-                  value={password}
+                  type="Password"
+                  value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength="8"
@@ -132,19 +132,19 @@ export const ProfileView = ({
               <Form.Group>
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
-                  type="email"
-                  value={email}
+                  type="Email"
+                  value={Email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="bg-light"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Birthdate:</Form.Label>
+                <Form.Label>Birthday:</Form.Label>
                 <Form.Control
                   type="date"
-                  value={birthdate}
-                  onChange={(e) => setBirthdate(e.target.value)}
+                  value={Birthday}
+                  onChange={(e) => setBirthday(e.target.value)}
                   required
                   className="bg-light"
                 />

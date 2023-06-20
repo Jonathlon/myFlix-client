@@ -78,7 +78,12 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
                   </Col>
                 )}
               </>
@@ -94,7 +99,12 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movies={movies} />
+                    <MovieView
+                      movies={movies}
+                      user={user}
+                      token={token}
+                      updateUser={setUser}
+                    />
                   </Col>
                 )}
               </>
@@ -124,7 +134,17 @@ export const MainView = () => {
             path="/profile"
             element={
               <>
-                <ProfileView user={user} />
+                <ProfileView
+                  user={user}
+                  token={token}
+                  movies={movies}
+                  onLoggedOut={() => {
+                    localStorage.clear();
+                    setUser(null);
+                    setToken(null);
+                  }}
+                  updateUser={setUser}
+                />
               </>
             }
           />

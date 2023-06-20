@@ -1,22 +1,25 @@
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, user, token, updateUser }) => {
   const { movieId } = useParams();
   const movieData = movies.find((m) => m._id === movieId);
   const [isFavorite, setIsFavorite] = useState(
-    user.favoriteMovies.includes(movies._id)
+    user.FavoriteMovies.includes(movieId)
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setIsFavorite(user.favoriteMovies.includes(movies._id));
+    setIsFavorite(user.FavoriteMovies.includes(movieId));
     window.scrollTo(0, 0);
   }, [movieId]);
 
   const addFavorite = () => {
     fetch(
-      "https://jonathlonmovieapp.herokuapp.com/users/${username}/movies/${movieId}",
+      `https://jonathlonmovieapp.herokuapp.com/users/${user.Username}/movies/${movieId}`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -44,7 +47,7 @@ export const MovieView = ({ movies }) => {
 
   const removeFavorite = () => {
     fetch(
-      "https://jonathlonmovieapp.herokuapp.com/users/${username}/movies/${movieId}",
+      `https://jonathlonmovieapp.herokuapp.com/users/${user.Username}/movies/${movieId}`,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
@@ -96,9 +99,16 @@ export const MovieView = ({ movies }) => {
           <span>Featured: </span>
           <span>{movieData.Featured}</span>
         </div>
-        <Link to={`/`}>
-          <button className="'back-button">Back</button>
-        </Link>
+
+        <Button
+          className="'back-button"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          Back
+        </Button>
+
         {isFavorite ? (
           <Button variant="danger" className="ms-2" onClick={removeFavorite}>
             Remove from favorites
@@ -114,17 +124,7 @@ export const MovieView = ({ movies }) => {
 };
 
 MovieView.propTypes = {
-  movie: PropTypes.shape({
-    ImagePath: PropTypes.string.isRequired,
-    Title: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }),
-    Description: PropTypes.string.isRequired,
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }),
-    Featured: PropTypes.string.isRequired,
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
+  movies: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
+  updateUser: PropTypes.func.isRequired,
 };
