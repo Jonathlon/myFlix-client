@@ -84,7 +84,7 @@ export const ProfileView = ({
   return (
     <>
       <Col md={6}>
-        <Card className="mt-2 mb-3">
+        <Card className="mt-2 mb-3" style={{ backgroundColor: "whitesmoke" }}>
           <Card.Body>
             <Card.Title>Your info</Card.Title>
             <p>Username: {user.Username}</p>
@@ -104,7 +104,7 @@ export const ProfileView = ({
         </Button>
       </Col>
       <Col md={6}>
-        <Card className="mt-2 mb-3">
+        <Card className="mt-2 mb-3" style={{ backgroundColor: "whitesmoke" }}>
           <Card.Body>
             <Card.Title>Update your info</Card.Title>
             <Form onSubmit={handleSubmit}>

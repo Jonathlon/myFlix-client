@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" className="mb-4" sticky="top">
       <Container>
         <Navbar.Brand as={Link} to="/">
           MyFlix Movies
@@ -44,6 +44,6 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
 };
 
 NavigationBar.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   onLoggedOut: PropTypes.func.isRequired,
 };

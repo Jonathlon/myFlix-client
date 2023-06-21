@@ -12,11 +12,12 @@ export const MovieCard = ({ movie }) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          color: "white",
+          textAlign: "center",
         }}
       >
         <Card.Title>{movie.Title}</Card.Title>
-        <Card.Text>{movie.Director.Name}</Card.Text>
-        <Card.Body>{movie.Description}</Card.Body>
+
         <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
           <Button variant="primary">Open</Button>
         </Link>

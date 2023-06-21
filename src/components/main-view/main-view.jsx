@@ -96,7 +96,7 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : movies.length === 0 ? (
-                  <Col>The list is empty!</Col>
+                  <Col style={{ color: "white" }}>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
                     <MovieView
@@ -117,7 +117,7 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : movies.length === 0 ? (
-                  <Col>The list is empty!</Col>
+                  <Col style={{ color: "white" }}>The list is empty!</Col>
                 ) : (
                   <>
                     {movies.map((movie) => (

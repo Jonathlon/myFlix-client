@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
+import { useNavigate, Link } from "react-router-dom";
 
 export const MovieView = ({ movies, user, token, updateUser }) => {
   const { movieId } = useParams();
@@ -74,31 +74,20 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
   };
 
   return (
-    <div>
-      <div>
-        <img className="w-100" src={movieData.ImagePath} />
-      </div>
-      <div>
-        <div>
-          <span>Title: </span>
-          <span>{movieData.Title}</span>
-        </div>
-        <div>
-          <span>Genre: </span>
-          <span>{movieData.Genre.Name}</span>
-        </div>
-        <div>
-          <span>Description: </span>
-          <span>{movieData.Description}</span>
-        </div>
-        <div>
-          <span>Director: </span>
-          <span>{movieData.Director.Name}</span>
-        </div>
-        <div>
-          <span>Featured: </span>
-          <span>{movieData.Featured}</span>
-        </div>
+    <Card className="h-100">
+      <Card.Img variant="top" src={movieData.ImagePath} />
+      <Card.Body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          backgroundColor: "whitesmoke",
+        }}
+      >
+        <Card.Title>{movieData.Title}</Card.Title>
+        <Card.Text>Directed by: {movieData.Director.Name}</Card.Text>
+        <Card.Text>Movie Description: {movieData.Description}</Card.Text>
+        <Link to={`/movies/${encodeURIComponent(movieData._id)}`}></Link>
 
         <Button
           className="'back-button"
@@ -118,14 +107,14 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
             Add to favorites
           </Button>
         )}
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 };
 
 MovieView.propTypes = {
   movies: PropTypes.array.isRequired,
-  user: PropTypes.string.isRequired,
-  token: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  token: PropTypes.string.isRequired,
   updateUser: PropTypes.func.isRequired,
 };
