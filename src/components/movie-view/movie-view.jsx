@@ -125,6 +125,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
 MovieView.propTypes = {
   movies: PropTypes.array.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.string.isRequired,
+  token: PropTypes.object.isRequired,
   updateUser: PropTypes.func.isRequired,
 };

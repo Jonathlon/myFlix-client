@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, Col, Form, Button } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
+import PropTypes from "prop-types";
 
 export const ProfileView = ({
   user,
@@ -9,10 +10,10 @@ export const ProfileView = ({
   onLoggedOut,
   updateUser,
 }) => {
-  const [Username, setUsername] = useState("");
+  const [Username, setUsername] = useState(user.Username);
   const [Password, setPassword] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Birthday, setBirthday] = useState("");
+  const [Email, setEmail] = useState(user.Email);
+  const [Birthday, setBirthday] = useState(user.Birthday?.slice(0, 10));
 
   let favoriteMovies = movies?.filter((movie) =>
     user.FavoriteMovies.includes(movie._id)
@@ -31,7 +32,7 @@ export const ProfileView = ({
     };
 
     fetch(
-      "https://jonathlonmovieapp.herokuapp.com/users/${Username}",
+      `https://jonathlonmovieapp.herokuapp.com/users/${user.Username}`,
 
       {
         method: "PUT",
@@ -63,7 +64,7 @@ export const ProfileView = ({
 
   const deleteAccount = () => {
     console.log("doin");
-    fetch("https://jonathlonmovieapp.herokuapp.com/users/${Username}", {
+    fetch(`https://jonathlonmovieapp.herokuapp.com/users/${user.Username}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -166,4 +167,12 @@ export const ProfileView = ({
       ))}
     </>
   );
+};
+
+ProfileView.propTypes = {
+  movies: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
+  token: PropTypes.object.isRequired,
+  onLoggedOut: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
 };
