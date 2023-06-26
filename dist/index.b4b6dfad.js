@@ -2982,7 +2982,11 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 },{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-bootstrap/Container":"hEdsw","bootstrap/dist/css/bootstrap.min.css":"i5LP7","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","./index.scss":"lJZlQ"}],"iTorj":[function(require,module,exports) {
+=======
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-bootstrap/Container":"hEdsw","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","./index.scss":"lJZlQ"}],"iTorj":[function(require,module,exports) {
+>>>>>>> Stashed changes
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27380,7 +27384,11 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","../navigation-bar/navigation-bar":"bsPVM","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-router-dom":"9xmpe","../profile-view/profile-view":"2vVqf"}],"bwuIu":[function(require,module,exports) {
+=======
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6"}],"bwuIu":[function(require,module,exports) {
+>>>>>>> Stashed changes
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27468,7 +27476,11 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 },{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe"}],"7wKI2":[function(require,module,exports) {
+=======
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-bootstrap":"3AD9A"}],"7wKI2":[function(require,module,exports) {
+>>>>>>> Stashed changes
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -46649,7 +46661,11 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 },{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-router":"dbWyW","react-router-dom":"9xmpe","react":"21dqq","react-bootstrap":"3AD9A"}],"9YtA0":[function(require,module,exports) {
+=======
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL"}],"9YtA0":[function(require,module,exports) {
+>>>>>>> Stashed changes
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -46962,6 +46978,7 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","prop-types":"7wKI2"}],"bsPVM":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$abf5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -47454,5 +47471,8 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","prop-types":"7wKI2"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["4Xz2H","k9lX7","d8Dch"], "d8Dch", "parcelRequire028f")
+=======
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"65n62","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"ahkkL","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","prop-types":"7wKI2"}],"lJZlQ":[function() {},{}]},["4Xz2H","k9lX7","d8Dch"], "d8Dch", "parcelRequire028f")
+>>>>>>> Stashed changes
 
 //# sourceMappingURL=index.b4b6dfad.js.map
