@@ -86,6 +86,8 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
       >
         <Card.Title>{movieData.Title}</Card.Title>
         <Card.Text>Directed by: {movieData.Director.Name}</Card.Text>
+        <Card.Text>Director Bio: {movieData.Director.Bio}</Card.Text>
+        <Card.Text>Genre: {movieData.Genre.Name}</Card.Text>
         <Card.Text>Movie Description: {movieData.Description}</Card.Text>
         <Link to={`/movies/${encodeURIComponent(movieData._id)}`}></Link>
 
