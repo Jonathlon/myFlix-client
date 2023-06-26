@@ -1,8 +1,15 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    onSearch(query);
+  }, [query]);
+
   return (
     <Navbar bg="dark" variant="dark" className="mb-4" sticky="top">
       <Container>
@@ -37,6 +44,31 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               </>
             )}
           </Nav>
+          {user && (
+            <Form className="d-flex">
+              <Form.Control
+                style={{ color: "white" }}
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                }}
+              />
+              <Link to={"/"}>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    onSearch(query);
+                  }}
+                >
+                  Search
+                </Button>
+              </Link>
+            </Form>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -46,4 +78,5 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
 NavigationBar.propTypes = {
   user: PropTypes.object.isRequired,
   onLoggedOut: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
